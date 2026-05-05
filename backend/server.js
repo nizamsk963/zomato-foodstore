@@ -312,6 +312,19 @@ app.post("/api/verify-payment", authenticate, (req, res) => {
     return res.status(500).json({ message: "Payment verification failed." });
   }
 });
+const express = require("express");
+const cors = require("cors");
+
+const app = express();
+app.use(cors());
+
+app.get("/api/test", (req, res) => {
+  res.json({ message: "Backend working" });
+});
+
+app.listen(5000, () => {
+  console.log("Server running on port 5000");
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {
